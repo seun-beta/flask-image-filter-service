@@ -5,7 +5,6 @@ from flask import Flask
 from dotenv import load_dotenv
 from flasgger import Swagger
 
-
 from src.config.swagger import swagger_config, template
 from src.image.api import image_filter_bp
 
