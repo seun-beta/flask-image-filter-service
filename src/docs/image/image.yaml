@@ -1,0 +1,24 @@
+tags:
+  - Image
+parameters:
+  - in: header
+    name: Authorization
+    required: false
+
+  - in: path
+    name: file_name
+    type: string
+    required: true
+    description: The file to be uploaded.
+
+  # - in: query
+  #   name: per_page
+  #   type: integer
+  #   description: The numbers of items to be displayed.
+
+responses:
+  200:
+    description: A user can get available books.
+
+  500:
+    description: Internal Server Error.
