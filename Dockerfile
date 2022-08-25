@@ -1,11 +1,20 @@
 FROM python:3.7.13-alpine3.16
 
-WORKDIR /app
+WORKDIR /
+
+RUN apk add --no-cache jpeg-dev zlib-dev
+RUN apk add --no-cache --virtual .build-deps build-base linux-headers \
+    && pip install Pillow
+
+COPY /requirements/* ./requirements/
+
+COPY .flaskenv ./
+
+RUN pip install -r .requirements/production.txt
 
 COPY . .
 
-RUN pip install -r requirements/production.txt
-
 ENV PORT=5000
+ENV SECRET_KEY=notsafe
 
 CMD ["flask", "run"]
