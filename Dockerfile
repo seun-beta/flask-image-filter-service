@@ -10,7 +10,7 @@ COPY /requirements/* ./requirements/
 
 COPY .flaskenv ./
 
-RUN pip install -r .requirements/production.txt
+RUN pip install -r requirements/production.txt
 
 COPY . .
 
