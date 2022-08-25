@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.9"
+
+services:
+  - docker
+
+
+script:
+  - docker --version # print the docker version for logging
+  - docker build -t flask-image-filter-service .
+  - docker tag flask-image-filter-service codepiercer/flask-image-filter-service
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push codepiercer/flask-image-filter-service
