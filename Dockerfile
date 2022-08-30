@@ -19,7 +19,6 @@ RUN pip install -r requirements/production.txt
 
 COPY . .
 
-ENV PORT=5000
 ENV SECRET_KEY=notsafe
 
 CMD ["flask", "run"]
