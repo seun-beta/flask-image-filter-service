@@ -19,4 +19,6 @@ RUN pip install -r requirements/production.txt
 
 COPY . .
 
+ENV SECRET_KEY=notsafe
+
 CMD ["flask", "run"]
